@@ -1,0 +1,1 @@
+A React Native app mainly for practice, but will display pokemon data!
