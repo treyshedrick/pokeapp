@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import PokeInfo from '../PokeInfo';
+import {Text} from 'react-native';
 
 const Search = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -46,7 +47,11 @@ const Search = () => {
     }
   }, [pokemonSelected, pokemonList, pokemonInfo, searchClick]);
 
-  return <PokeInfo info={pokemonInfo} />;
+  if (pokemonInfo) {
+    return <PokeInfo info={pokemonInfo} />;
+  }
+
+  return <Text>Loading. . .</Text>;
 };
 
 export default Search;
