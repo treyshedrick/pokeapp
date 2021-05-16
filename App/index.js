@@ -9,14 +9,14 @@
 import React from 'react';
 import Header from './Header/index';
 import Search from './Search';
-import {View} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   return (
-    <View>
+    <SafeAreaProvider>
       <Header />
       <Search />
-    </View>
+    </SafeAreaProvider>
   );
 };
 
