@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import PokeInfo from '../PokeInfo';
-import {Text, View, FlatList, Button} from 'react-native';
-import {SearchBar, ListItem} from 'react-native-elements';
+import {Text, View, FlatList, Button, ActivityIndicator} from 'react-native';
+import {SearchBar} from 'react-native-elements';
 import styles from './styles';
 
 const Search = () => {
@@ -103,7 +103,11 @@ const Search = () => {
     );
   }
 
-  return <Text>Loading. . .</Text>;
+  return (
+    <View style={styles.loadingScreen}>
+      <ActivityIndicator size="large" color="red" />
+    </View>
+  );
 };
 
 export default Search;

@@ -12,4 +12,7 @@ module.exports = StyleSheet.create({
   searchBar: {
     backgroundColor: 'white',
   },
+  loadingScreen: {
+    margin: '50%',
+  },
 });
