@@ -2,9 +2,8 @@ import {StyleSheet} from 'react-native';
 
 module.exports = StyleSheet.create({
   pokeContainer: {
-    borderWidth: 5,
+    marginTop: 65,
     paddingBottom: 20,
-    borderColor: 'red',
   },
   sectionTitle: {
     textAlign: 'center',
