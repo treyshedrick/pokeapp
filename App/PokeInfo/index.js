@@ -9,8 +9,6 @@ const PokeInfo = ({info}) => {
     return i.type.name;
   });
 
-  console.log(info);
-
   return (
     <View style={styles.pokeContainer}>
       <View style={styles.row}>
