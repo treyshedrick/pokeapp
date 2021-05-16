@@ -3,6 +3,7 @@ import axios from 'axios';
 import PokeInfo from '../PokeInfo';
 import {Text, View, FlatList, Button} from 'react-native';
 import {SearchBar, ListItem} from 'react-native-elements';
+import styles from './styles';
 
 const Search = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -24,7 +25,6 @@ const Search = () => {
           };
         });
         setPokemonList(pokeArr);
-        setPokeSearchArr(pokeArr);
         console.log('Called Pokemon API');
       })
       .catch(err => {
@@ -54,6 +54,7 @@ const Search = () => {
   const handleOnSelect = item => {
     setSelectedPokemon(item.title);
     setSearchClick(true);
+    setPokeSearchArr([]);
   };
 
   const searchFilter = text => {
@@ -63,29 +64,42 @@ const Search = () => {
         return item.title.indexOf(text.toLowerCase()) > -1;
       })
       .slice(0, 5);
-    setPokeSearchArr(newData);
-    console.log(text.length);
+    if (text.length === 0) {
+      setPokeSearchArr([]);
+    } else {
+      setPokeSearchArr(newData);
+    }
   };
+
+  console.log(pokeSearchArr);
 
   if (pokemonInfo) {
     return (
-      <View>
-        <FlatList
-          data={pokeSearchArr.slice(0, 5)}
-          renderItem={({item}) => (
-            <Button title={item.title} onPress={() => handleOnSelect(item)} />
-          )}
-          keyExtractor={item => item.id}
-          ListHeaderComponent={
-            <SearchBar
-              placeholder="Search for a pokemon..."
-              onChangeText={text => searchFilter(text)}
-              value={pokeSearch}
-            />
-          }
-        />
+      <>
+        <View
+          style={styles.search}
+          height={pokeSearchArr.length > 0 ? '100%' : null}>
+          <FlatList
+            data={pokeSearchArr.slice(0, 5)}
+            renderItem={({item}) => (
+              <Button title={item.title} onPress={() => handleOnSelect(item)} />
+            )}
+            keyExtractor={item => item.id}
+            ListHeaderComponent={
+              <SearchBar
+                containerStyle={styles.searchBar}
+                placeholder="Search for a pokemon..."
+                onChangeText={text => searchFilter(text)}
+                value={pokeSearch}
+                onClear={() => setPokeSearchArr([])}
+                lightTheme
+                round
+              />
+            }
+          />
+        </View>
         <PokeInfo info={pokemonInfo} />
-      </View>
+      </>
     );
   }
 
