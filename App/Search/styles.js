@@ -12,7 +12,7 @@ module.exports = StyleSheet.create({
     backgroundColor: 'white',
   },
   loadingScreen: {
-    margin: '50%',
+    marginTop: '70%',
   },
   main: {
     height: '80%',

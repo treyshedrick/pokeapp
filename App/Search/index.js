@@ -104,8 +104,10 @@ const Search = () => {
   }
 
   return (
-    <View style={styles.loadingScreen}>
-      <ActivityIndicator size="large" color="red" />
+    <View style={styles.main}>
+      <View style={styles.loadingScreen}>
+        <ActivityIndicator size="large" color="red" />
+      </View>
     </View>
   );
 };
