@@ -75,7 +75,7 @@ const Search = () => {
 
   if (pokemonInfo) {
     return (
-      <>
+      <View style={styles.main}>
         <View
           style={styles.search}
           height={pokeSearchArr.length > 0 ? '100%' : null}>
@@ -99,7 +99,7 @@ const Search = () => {
           />
         </View>
         <PokeInfo info={pokemonInfo} />
-      </>
+      </View>
     );
   }
 

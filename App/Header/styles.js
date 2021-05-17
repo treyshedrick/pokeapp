@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 module.exports = StyleSheet.create({
   headerContainer: {
-    height: 80,
+    height: '10%',
     backgroundColor: 'red',
   },
   sectionTitle: {
