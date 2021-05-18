@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {View, Text, Image} from 'react-native';
-import capitalize from '../utils/capitalize';
+import {ScrollView} from 'react-native';
+import Basic from './Basic';
 import styles from './styles';
 
 const PokeInfo = ({info}) => {
@@ -10,28 +10,13 @@ const PokeInfo = ({info}) => {
   });
 
   return (
-    <View style={styles.pokeContainer}>
-      <View style={styles.row}>
-        <Image
-          style={styles.pokeImage}
-          source={{uri: info.sprites.front_default}}
-        />
-      </View>
-      <View>
-        <Text style={styles.sectionTitle}>{capitalize(info.name)}</Text>
-        <Text style={styles.sectionTitle}>
-          Type:
-          {type.length > 1
-            ? type.map((typeOf, i) => {
-                if (i > 0) {
-                  return ` / ${capitalize(typeOf)}`;
-                }
-                return ` ${capitalize(typeOf)}`;
-              })
-            : `  ${capitalize(type.toString())}`}
-        </Text>
-      </View>
-    </View>
+    <ScrollView style={styles.pokeContainer}>
+      <Basic
+        name={info.name}
+        type={type}
+        imageUrl={info.sprites.front_default}
+      />
+    </ScrollView>
   );
 };
 
