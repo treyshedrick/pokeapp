@@ -71,8 +71,6 @@ const Search = () => {
     }
   };
 
-  console.log(pokeSearchArr);
-
   if (pokemonInfo) {
     return (
       <View style={styles.main}>
