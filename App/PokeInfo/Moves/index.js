@@ -28,6 +28,11 @@ const Moves = ({moves}) => {
     });
   });
 
+  // sort pokeMoves by when learned
+  pokeMoves = pokeMoves.sort((a, b) => {
+    return a.levelLearnedAt - b.levelLearnedAt;
+  });
+
   return (
     <View>
       {pokeMoves.map((move, index) => {
