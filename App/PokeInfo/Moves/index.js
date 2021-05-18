@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView, TouchableHighlight} from 'react-native';
+import styles from './styles';
 
 const Moves = ({moves}) => {
   // filters through moves array for only gen 4 and moves aquired from leveling up
@@ -35,13 +36,25 @@ const Moves = ({moves}) => {
 
   return (
     <View>
-      {pokeMoves.map((move, index) => {
-        return (
-          <View key={`pokeMove_${index}`}>
-            <Text>{`${move.name} level ${move.levelLearnedAt}`}</Text>
-          </View>
-        );
-      })}
+      <Text style={styles.titleLeft}>Moves</Text>
+      <ScrollView horizontal>
+        {pokeMoves.map((move, index) => {
+          return (
+            <TouchableHighlight
+              key={`pokeMove_${index}`}
+              style={styles.moveViewStyle}
+              onPress={() => {
+                console.log('Test. Will call more move info!');
+              }}>
+              <View>
+                <Text
+                  style={styles.center}>{`Level ${move.levelLearnedAt}:`}</Text>
+                <Text style={styles.center}>{move.name}</Text>
+              </View>
+            </TouchableHighlight>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 };
