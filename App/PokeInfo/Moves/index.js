@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {View, Text, ScrollView, TouchableHighlight} from 'react-native';
 import styles from './styles';
@@ -57,6 +58,14 @@ const Moves = ({moves}) => {
       </ScrollView>
     </View>
   );
+};
+
+Moves.propTypes = {
+  moves: PropTypes.array,
+};
+
+Moves.defaultProps = {
+  moves: [],
 };
 
 export default Moves;
