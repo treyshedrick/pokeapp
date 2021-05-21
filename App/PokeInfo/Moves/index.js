@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {View, Text, ScrollView, TouchableHighlight} from 'react-native';
+import MovesModal from './movesModal';
 import styles from './styles';
 
 const Moves = ({moves}) => {
+  const [showModal, shouldShowModal] = useState(false);
+  const [selectedMove, setSelectedMove] = useState('');
+
   // filters through moves array for only gen 4 and moves aquired from leveling up
   const versionGroups = moves.map(i => {
     return i.version_group_details.filter(vg => {
@@ -35,8 +39,22 @@ const Moves = ({moves}) => {
     return a.levelLearnedAt - b.levelLearnedAt;
   });
 
+  const displayMoveInfo = moveName => {
+    setSelectedMove(moveName);
+    modalAction();
+  };
+
+  const modalAction = () => {
+    shouldShowModal(!showModal);
+  };
+
+  console.log(showModal);
+
   return (
     <View>
+      {showModal ? (
+        <MovesModal move={selectedMove} modalAction={modalAction} />
+      ) : null}
       <Text style={styles.titleLeft}>Moves</Text>
       <ScrollView horizontal>
         {pokeMoves.map((move, index) => {
@@ -45,7 +63,7 @@ const Moves = ({moves}) => {
               key={`pokeMove_${index}`}
               style={styles.moveViewStyle}
               onPress={() => {
-                console.log('Test. Will call more move info!');
+                displayMoveInfo(move.name);
               }}>
               <View>
                 <Text
