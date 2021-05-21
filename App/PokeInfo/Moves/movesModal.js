@@ -7,7 +7,7 @@ import {View, Text, ScrollView, Modal} from 'react-native';
 import styles from './styles';
 
 const MovesModal = ({move, modalAction}) => {
-  const [moveInfo, setMoveInfo] = useState('');
+  const [moveInfo, setMoveInfo] = useState(null);
 
   useEffect(() => {
     axios
@@ -47,6 +47,16 @@ const MovesModal = ({move, modalAction}) => {
             />
           </View>
           <Text>{move}</Text>
+          {moveInfo !== null ? (
+            <>
+              <View>
+                <Text>Type: {moveInfo.type.name}</Text>
+              </View>
+              <View>
+                <Text>Type: {moveInfo.meta.category.name}</Text>
+              </View>
+            </>
+          ) : null}
         </View>
       </Modal>
     </View>
