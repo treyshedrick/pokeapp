@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {View, Text, ScrollView, Modal} from 'react-native';
 import styles from './styles';
 
+import capitalize from '../../utils/capitalize';
+
 const MovesModal = ({move, modalAction}) => {
   const [moveInfo, setMoveInfo] = useState(null);
 
@@ -20,6 +22,14 @@ const MovesModal = ({move, modalAction}) => {
         console.log(err);
       });
   }, [move]);
+
+  const moveDescription = (description, attributes) => {
+    if (description.indexOf('$effect_chance') > -1) {
+      return description.replace('$effect_chance', attributes.effect_chance);
+    } else {
+      return description;
+    }
+  };
 
   console.log(moveInfo);
 
@@ -46,14 +56,25 @@ const MovesModal = ({move, modalAction}) => {
               }}
             />
           </View>
-          <Text>{move}</Text>
+          <Text>{capitalize(move)}</Text>
           {moveInfo !== null ? (
             <>
               <View>
                 <Text>Type: {moveInfo.type.name}</Text>
               </View>
               <View>
-                <Text>Type: {moveInfo.meta.category.name}</Text>
+                <Text>Category: {moveInfo.meta.category.name}</Text>
+              </View>
+              <View>
+                <Text>
+                  {moveDescription(
+                    moveInfo.effect_entries[0].short_effect,
+                    moveInfo,
+                  )}
+                </Text>
+              </View>
+              <View>
+                <Text>Accuracy: {moveInfo.accuracy}</Text>
               </View>
             </>
           ) : null}
