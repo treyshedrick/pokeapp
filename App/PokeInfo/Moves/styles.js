@@ -12,17 +12,32 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  center: {
+  moveText: {
     textAlign: 'center',
     color: 'white',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  moveDesc: {
+    textAlign: 'center',
+    fontSize: 16,
+    paddingTop: 10,
+  },
+  moveTitle: {
+    textAlign: 'center',
+    fontSize: 26,
+  },
+  moveInfo: {
+    fontSize: 17,
+    paddingTop: 10,
   },
   moveViewStyle: {
     padding: 20,
     margin: 10,
-    borderColor: 'skyblue',
+    borderColor: 'black',
     borderRadius: 10,
     borderWidth: 2,
-    backgroundColor: 'navy',
+    backgroundColor: 'red',
     color: 'white',
   },
   modal: {
@@ -31,7 +46,6 @@ module.exports = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

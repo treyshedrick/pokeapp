@@ -68,9 +68,10 @@ const Moves = ({moves}) => {
                 displayMoveInfo(move.name);
               }}>
               <View>
-                <Text
-                  style={styles.center}>{`Level ${move.levelLearnedAt}:`}</Text>
-                <Text style={styles.center}>{capitalize(move.name)}</Text>
+                <Text style={styles.moveText}>
+                  {`Level ${move.levelLearnedAt}:`}
+                </Text>
+                <Text style={styles.moveText}>{capitalize(move.name)}</Text>
               </View>
             </TouchableHighlight>
           );
