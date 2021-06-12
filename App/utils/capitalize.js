@@ -1,5 +1,6 @@
 const capitalize = string => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  const newStr = string.replace('-', ' ');
+  return newStr.charAt(0).toUpperCase() + newStr.slice(1);
 };
 
 export default capitalize;

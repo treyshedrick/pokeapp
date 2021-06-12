@@ -4,6 +4,8 @@ import {View, Text, ScrollView, TouchableHighlight} from 'react-native';
 import MovesModal from './movesModal';
 import styles from './styles';
 
+import capitalize from '../../utils/capitalize';
+
 const Moves = ({moves}) => {
   const [showModal, shouldShowModal] = useState(false);
   const [selectedMove, setSelectedMove] = useState('');
@@ -68,7 +70,7 @@ const Moves = ({moves}) => {
               <View>
                 <Text
                   style={styles.center}>{`Level ${move.levelLearnedAt}:`}</Text>
-                <Text style={styles.center}>{move.name}</Text>
+                <Text style={styles.center}>{capitalize(move.name)}</Text>
               </View>
             </TouchableHighlight>
           );
