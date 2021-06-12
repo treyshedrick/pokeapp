@@ -20,7 +20,7 @@ module.exports = StyleSheet.create({
   },
   moveDesc: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 15,
     paddingTop: 10,
   },
   moveTitle: {
@@ -30,6 +30,12 @@ module.exports = StyleSheet.create({
   moveInfo: {
     fontSize: 17,
     paddingTop: 10,
+  },
+  moveInfoRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-evenly',
+    paddingTop: 15,
   },
   moveViewStyle: {
     padding: 20,

@@ -56,26 +56,36 @@ const MovesModal = ({move, modalAction}) => {
               }}
             />
           </View>
-          <Text style={styles.moveTitle}>{capitalize(move)}</Text>
           {moveInfo !== null ? (
             <>
-              <View>
-                <Text style={styles.moveInfo}>
-                  Type: {capitalize(moveInfo.type.name)}
-                </Text>
-                <Text style={styles.moveInfo}>
-                  Category: {moveInfo.meta.category.name}
-                </Text>
-                <Text style={styles.moveInfo}>
-                  Accuracy: {moveInfo.accuracy}
-                </Text>
-              </View>
+              <Text style={styles.moveTitle}>{capitalize(move)}</Text>
               <View>
                 <Text style={styles.moveDesc}>
                   {moveDescription(
                     moveInfo.effect_entries[0].short_effect,
                     moveInfo,
                   )}
+                </Text>
+              </View>
+              <View>
+                <Text style={styles.moveInfo}>
+                  Type: {capitalize(moveInfo.type.name)}
+                </Text>
+                <Text style={styles.moveInfo}>
+                  Category: {capitalize(moveInfo.meta.category.name)}
+                </Text>
+                <Text style={styles.moveInfo}>
+                  Accuracy: {moveInfo.accuracy}%
+                </Text>
+                <Text style={styles.moveInfo}>
+                  Targets: {capitalize(moveInfo.target.name)}
+                </Text>
+              </View>
+              <View style={styles.moveInfoRow}>
+                <Text>PP: {moveInfo.pp}</Text>
+                <Text>Priority: {moveInfo.priority}</Text>
+                <Text>
+                  Power: {moveInfo.power === null ? 0 : moveInfo.power}
                 </Text>
               </View>
             </>
