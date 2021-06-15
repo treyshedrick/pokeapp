@@ -14,7 +14,10 @@ const Search = () => {
   const [pokeSearchArr, setPokeSearchArr] = useState([]);
   const [searchClick, setSearchClick] = useState(false);
 
+  const [loading, isLoading] = useState(false);
+
   useEffect(() => {
+    isLoading(true);
     axios
       .get('https://pokeapi.co/api/v2/pokedex/5')
       .then(response => {
@@ -25,6 +28,7 @@ const Search = () => {
           };
         });
         setPokemonList(pokeArr);
+        isLoading(false);
         console.log('Called Pokemon API');
       })
       .catch(err => {
@@ -38,11 +42,14 @@ const Search = () => {
       setSelectedPokemon(pokemonList[randmNum].title);
     }
     if ((pokemonSelected != null && pokemonInfo == null) || searchClick) {
+      isLoading(true);
+      setPokeSearch('');
       console.log('Should only occur on search');
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${pokemonSelected}`)
         .then(response => {
           setPokemonInfo(response.data);
+          isLoading(false);
         })
         .catch(err => {
           console.log(err);
@@ -72,6 +79,7 @@ const Search = () => {
   };
 
   if (pokemonInfo) {
+    console.log(pokeSearch);
     return (
       <View style={styles.main}>
         <View
@@ -96,18 +104,24 @@ const Search = () => {
             }
           />
         </View>
-        <PokeInfo info={pokemonInfo} />
+        {!loading ? (
+          <PokeInfo info={pokemonInfo} />
+        ) : (
+          <View style={styles.loadingScreen}>
+            <ActivityIndicator size="large" color="red" />
+          </View>
+        )}
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.main}>
+        <View style={styles.loadingScreen}>
+          <ActivityIndicator size="large" color="red" />
+        </View>
       </View>
     );
   }
-
-  return (
-    <View style={styles.main}>
-      <View style={styles.loadingScreen}>
-        <ActivityIndicator size="large" color="red" />
-      </View>
-    </View>
-  );
 };
 
 export default Search;
