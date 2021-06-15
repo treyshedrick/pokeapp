@@ -3,6 +3,7 @@ import React from 'react';
 import {ScrollView} from 'react-native';
 import Basic from './Basic';
 import Moves from './Moves';
+import Stats from './Stats';
 import styles from './styles';
 
 const PokeInfo = ({info}) => {
@@ -17,6 +18,7 @@ const PokeInfo = ({info}) => {
         type={type}
         imageUrl={info.sprites.front_default}
       />
+      <Stats stats={info.stats} experience={info.base_experience} />
       <Moves moves={info.moves} />
     </ScrollView>
   );
