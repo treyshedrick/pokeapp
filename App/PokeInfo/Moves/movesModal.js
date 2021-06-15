@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {Chip} from 'react-native-elements';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {View, Text, ScrollView, Modal} from 'react-native';
+import {View, Text, Modal} from 'react-native';
 import styles from './styles';
 
 import capitalize from '../../utils/capitalize';
@@ -31,17 +31,9 @@ const MovesModal = ({move, modalAction}) => {
     }
   };
 
-  console.log(moveInfo);
-
   return (
     <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={true}
-        onRequestClose={() => {
-          console.log('Closed!');
-        }}>
+      <Modal animationType="slide" transparent={true} visible={true}>
         <View style={styles.modal}>
           <View style={styles.closeButton}>
             <Chip

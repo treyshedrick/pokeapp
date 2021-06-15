@@ -50,8 +50,6 @@ const Moves = ({moves}) => {
     shouldShowModal(!showModal);
   };
 
-  console.log(showModal);
-
   return (
     <View>
       {showModal ? (
