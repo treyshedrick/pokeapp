@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 const Stats = ({stats, experience}) => {
-  console.log(stats);
   return (
     <View>
       <View>
