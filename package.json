@@ -31,6 +31,7 @@
     "preset": "react-native",
     "transformIgnorePatterns": [
         "node_modules/(?!@react-native|react-native|react-native-elements)"
-      ]
+      ],
+    "collectCoverage": true
   }
 }
