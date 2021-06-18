@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {Chip} from 'react-native-elements';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import SkeletonContent from 'react-native-skeleton-content-nonexpo';
 import {View, Text, Modal} from 'react-native';
 import styles from './styles';
 
@@ -15,8 +16,10 @@ const MovesModal = ({move, modalAction}) => {
     axios
       .get(`https://pokeapi.co/api/v2/move/${move}`)
       .then(response => {
-        setMoveInfo(response.data);
-        console.log('Called Pokemon API for move info');
+        setTimeout(() => {
+          setMoveInfo(response.data);
+          console.log('Called Pokemon API for move info');
+        }, 2000);
       })
       .catch(err => {
         console.log(err);
@@ -81,7 +84,41 @@ const MovesModal = ({move, modalAction}) => {
                 </Text>
               </View>
             </>
-          ) : null}
+          ) : (
+            <SkeletonContent
+              containerStyle={styles.skeletonContainer}
+              isLoading={true}
+              layout={[
+                {
+                  key: 'name',
+                  width: 140,
+                  height: 20,
+                  marginBottom: 15,
+                  alignSelf: 'center',
+                },
+                {
+                  key: 'description',
+                  width: 210,
+                  height: 20,
+                  marginBottom: 15,
+                  alignSelf: 'center',
+                },
+                {
+                  key: 'info',
+                  width: 180,
+                  height: 100,
+                  marginBottom: 15,
+                },
+                {
+                  key: 'stats',
+                  width: 230,
+                  height: 20,
+                  marginBottom: 6,
+                  alignSelf: 'center',
+                },
+              ]}
+            />
+          )}
         </View>
       </Modal>
     </View>

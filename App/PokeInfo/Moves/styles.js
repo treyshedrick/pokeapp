@@ -72,4 +72,7 @@ module.exports = StyleSheet.create({
     right: 0,
     top: 0,
   },
+  skeletonContainer: {
+    height: 210,
+  },
 });
