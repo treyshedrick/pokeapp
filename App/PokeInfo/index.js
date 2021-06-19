@@ -10,13 +10,13 @@ const PokeInfo = ({info}) => {
   const type = info.types.map(i => {
     return i.type.name;
   });
-
+  console.log(info.sprites.other);
   return (
     <ScrollView style={styles.pokeContainer}>
       <Basic
         name={info.name}
         type={type}
-        imageUrl={info.sprites.front_default}
+        imageUrl={info.sprites.other['official-artwork'].front_default}
       />
       <Stats stats={info.stats} experience={info.base_experience} />
       <Moves moves={info.moves} />

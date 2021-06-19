@@ -7,6 +7,7 @@ module.exports = StyleSheet.create({
     fontWeight: '600',
   },
   pokeImage: {
+    margin: 30,
     height: 250,
     width: 250,
   },
