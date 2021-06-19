@@ -8,12 +8,15 @@ module.exports = StyleSheet.create({
     zIndex: 1,
     elevation: 0,
   },
+
   searchBar: {
     backgroundColor: 'white',
   },
+
   loadingScreen: {
     marginTop: '70%',
   },
+
   main: {
     height: '80%',
   },

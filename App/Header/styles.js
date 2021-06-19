@@ -5,6 +5,7 @@ module.exports = StyleSheet.create({
     height: '10%',
     backgroundColor: 'red',
   },
+
   sectionTitle: {
     textAlign: 'center',
     paddingTop: 40,

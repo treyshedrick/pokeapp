@@ -6,11 +6,13 @@ module.exports = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
   },
+
   pokeImage: {
     margin: 30,
     height: 250,
     width: 250,
   },
+
   row: {
     flexDirection: 'row',
     alignItems: 'center',

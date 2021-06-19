@@ -10,7 +10,7 @@ const PokeInfo = ({info}) => {
   const type = info.types.map(i => {
     return i.type.name;
   });
-  console.log(info.sprites.other);
+
   return (
     <ScrollView style={styles.pokeContainer}>
       <Basic

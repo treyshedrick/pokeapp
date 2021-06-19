@@ -7,10 +7,12 @@ module.exports = StyleSheet.create({
     justifyContent: 'space-evenly',
     padding: 18,
   },
+
   statFont: {
     fontSize: 16.5,
     padding: 2.5,
   },
+
   xpRow: {
     paddingTop: 10,
     alignItems: 'center',
