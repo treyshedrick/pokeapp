@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Image} from 'react-native';
 import styles from './styles';
+import PokedexImage from '../assets/pokedex.png';
 
 const Header = () => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.sectionTitle}>Pokedex</Text>
+      <Image style={styles.sectionTitle} source={PokedexImage} />
     </View>
   );
 };

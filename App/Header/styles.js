@@ -4,13 +4,11 @@ module.exports = StyleSheet.create({
   headerContainer: {
     height: '10%',
     backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   sectionTitle: {
-    textAlign: 'center',
-    paddingTop: 40,
-    fontSize: 24,
-    fontWeight: '600',
-    color: 'white',
+    marginTop: 30,
   },
 });
