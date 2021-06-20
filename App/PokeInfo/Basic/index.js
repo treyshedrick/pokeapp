@@ -11,7 +11,7 @@ const Basic = ({type, name, imageUrl}) => {
         <Image style={styles.pokeImage} source={{uri: imageUrl}} />
       </View>
       <View>
-        <Text style={styles.sectionTitle}>{capitalize(name)}</Text>
+        <Text style={styles.pokeName}>{capitalize(name)}</Text>
         <Text style={styles.sectionTitle}>
           Type:
           {type.length > 1

@@ -1,8 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import PokeInfo from '../PokeInfo';
-import {Text, View, FlatList, Button, ActivityIndicator} from 'react-native';
-import {SearchBar} from 'react-native-elements';
+import {View, FlatList, ActivityIndicator} from 'react-native';
+import {SearchBar, Button} from 'react-native-elements';
 import styles from './styles';
 
 const Search = () => {
@@ -85,9 +85,15 @@ const Search = () => {
           style={styles.search}
           height={pokeSearchArr.length > 0 ? '100%' : null}>
           <FlatList
-            data={pokeSearchArr.slice(0, 5)}
+            data={pokeSearchArr}
             renderItem={({item}) => (
-              <Button title={item.title} onPress={() => handleOnSelect(item)} />
+              <Button
+                buttonStyle={{height: 50}}
+                titleStyle={{fontSize: 25, color: 'black'}}
+                type="clear"
+                title={item.title}
+                onPress={() => handleOnSelect(item)}
+              />
             )}
             keyExtractor={item => item.id}
             ListHeaderComponent={
