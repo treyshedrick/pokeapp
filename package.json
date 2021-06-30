@@ -36,8 +36,11 @@
   },
   "jest": {
     "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/__mock__/setup.js"
+    ],
     "transformIgnorePatterns": [
-      "node_modules/(?!@react-native|react-native|react-native-elements)"
+      "node_modules/(?!@react-native|react-native|react-native-elements|react-native-reanimated)"
     ],
     "collectCoverage": true
   }
