@@ -5,11 +5,11 @@ import PokedexImage from '../assets/pokedex.png';
 import DeviceInfo from 'react-native-device-info';
 
 const Header = () => {
-  console.log(DeviceInfo.hasNotch());
+  const phoneNotch = DeviceInfo.hasNotch();
   return (
     <View style={styles.headerContainer}>
       <Image
-        style={DeviceInfo.hasNotch() ? styles.sectionTitle : null}
+        style={phoneNotch ? styles.sectionTitle : null}
         source={PokedexImage}
       />
     </View>
