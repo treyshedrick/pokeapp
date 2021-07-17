@@ -59,6 +59,7 @@ const Search = () => {
   }, [pokemonSelected, pokemonList, pokemonInfo, searchClick]);
 
   const handleOnSelect = item => {
+    isLoading(true);
     setSelectedPokemon(item.title);
     setSearchClick(true);
     setPokeSearchArr([]);
